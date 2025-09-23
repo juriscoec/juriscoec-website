@@ -148,7 +148,7 @@
 }
 
 /* Animation utilities */
-@utility fade-up {
+@utility animate-fade-up {
   animation: fadeUp 0.35s ease-out forwards;
 }
 
