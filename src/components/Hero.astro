@@ -1,0 +1,43 @@
+---
+// Hero component
+---
+
+<section class="relative min-h-screen">
+  <!-- Imagen de fondo -->
+  <div class="absolute inset-0">
+    <img 
+      src="/images/hero-bg.jpg" 
+      alt="Fondo Bufete Legal" 
+      class="w-full h-full object-cover"
+    />
+    <!-- Overlay con gradiente -->
+    <div class="absolute inset-0 bg-gradient-to-r from-dark/95 via-dark/70 to-dark/30"></div>
+    {/* Capa adicional para asegurar legibilidad del texto */}
+    <div class="absolute inset-0 bg-gradient-to-b from-dark/30 via-transparent to-dark/40"></div>
+  </div>
+  
+  <div class="container mx-auto px-4 pt-32 pb-24 relative">
+    <div class="max-w-4xl mt-24">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 text-light">
+        Defendemos tus derechos con excelencia y dedicación
+      </h1>
+      <p class="text-xl md:text-2xl text-light/90 mb-12 max-w-2xl">
+        Más de 20 años de experiencia respaldando a nuestros clientes con soluciones legales efectivas y personalizadas.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a 
+          href="#contacto" 
+          class="btn bg-primary text-light px-8 py-4 rounded-lg text-lg font-medium hover:bg-primary-dark transition-colors text-center shadow-lg"
+        >
+          Contactar
+        </a>
+        <a 
+          href="#servicios" 
+          class="btn bg-light/10 backdrop-blur border-2 border-light text-light px-8 py-4 rounded-lg text-lg font-medium hover:bg-light hover:text-dark transition-colors text-center shadow-lg"
+        >
+          Nuestros Servicios
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

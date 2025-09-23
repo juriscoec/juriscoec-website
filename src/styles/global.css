@@ -1,1 +1,184 @@
 @import "tailwindcss";
+@import '@fontsource-variable/inter';
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('/fonts/barlow-condensed/barlow-condensed-latin-700-normal.woff2')
+      format('woff2'),
+    url('/fonts/barlow-condensed/barlow-condensed-latin-700-normal.woff')
+      format('woff');
+}
+
+@theme {
+  /* Fonts */
+  --font-inter: 'Inter', sans-serif;
+
+  /* Colors */
+  --color-primary: oklch(65.94% 0.098 27.51);
+  --color-primary-dark: oklch(55.94% 0.098 27.51);
+  --color-primary-light: oklch(75.94% 0.098 27.51);
+  --color-primary-lighter: oklch(85.94% 0.098 27.51);
+
+  --color-secondary: oklch(45% 0.05 40);
+  --color-secondary-light: oklch(65% 0.03 40);
+  --color-secondary-lighter: oklch(85% 0.02 40);
+  --color-secondary-dark: oklch(35% 0.06 40);
+  --color-secondary-darker: oklch(25% 0.07 40);
+
+  --color-dark: oklch(20% 0.02 40);
+  --color-light: oklch(98% 0 none);
+
+  --color-accent: oklch(60% 0.12 80);
+  --color-muted: oklch(85% 0.02 27.51);
+  --color-muted-warm: oklch(92% 0.02 40);
+  --color-foreground: oklch(30% 0.03 40);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-primary-lighter)
+  );
+
+  --gradient-accent: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+
+  --gradient-secondary: linear-gradient(
+    to right,
+    var(--color-secondary-light),
+    var(--color-secondary-lighter),
+    var(--color-secondary-light)
+  );
+
+  /* Shadows */
+  --shadow-glow: 0 0 20px rgb(191 142 138 / 0.5);
+}
+
+/* Gradients utilities */
+
+@utility text-gradient-primary {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility text-gradient-accent {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility bg-gradient-secondary {
+  background: var(--gradient-secondary);
+}
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    background-color: var(--color-primary-dark);
+    cursor: not-allowed;
+  }
+}
+
+@utility btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+
+  &:hover {
+    background-color: var(--color-primary-dark);
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@utility btn-secondary {
+  background-color: rgb(255 255 255 / 0.1);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+
+  &:hover {
+    background-color: rgb(255 255 255 / 0.2);
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@utility btn-lg {
+  padding: 16px 32px;
+}
+
+@utility btn-base {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+@utility btn-sm {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+@utility first-section {
+  margin-top: 18dvh;
+
+  @media screen and (width >= 1024px) {
+    margin-top: 20dvh;
+  }
+
+  @media screen and (width >= 1280px) {
+    margin-top: 24dvh;
+  }
+}
+
+/* Animation utilities */
+@utility fade-up {
+  animation: fadeUp 0.35s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
