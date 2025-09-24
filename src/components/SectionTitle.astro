@@ -1,0 +1,12 @@
+---
+import Typography from "./Typography.astro";
+
+const { title } = Astro.props;
+---
+
+<div class="mb-12">
+  <h2 class='text-4xl font-bold text-left mb-4'>
+    <Typography>{title}</Typography>
+  </h2>
+  <hr class='border-primary' />
+</div>

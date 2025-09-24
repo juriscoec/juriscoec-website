@@ -1,5 +1,7 @@
 ---
-// About component
+import SectionTitle from './SectionTitle.astro'
+import Typography from './Typography.astro'
+
 interface Partner {
   name: string
   role: string
@@ -48,13 +50,13 @@ const partners: Partner[] = [
 ]
 ---
 
-<section id='nosotros' class='py-24 relative overflow-hidden'>
+<section id='nosotros' class='py-24 overflow-hidden'>
   <div class='container mx-auto px-4'>
-    <h2 class='text-4xl font-bold text-center mb-12'>Acerca De Nosotros</h2>
+    <SectionTitle title='Sobre Nosotros' />
 
     <div class='max-w-7xl mx-auto'>
       <!-- Contenido -->
-      <div class='grid lg:grid-cols-2 gap-12 items-start'>
+      <div class='grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 items-start'>
         <div class='space-y-8'>
           <h3 class='text-3xl font-bold text-gradient-primary'>
             Experiencia y compromiso en cada caso
@@ -86,11 +88,11 @@ const partners: Partner[] = [
               alt='imagen de asuntos legales'
               class='max-w-20'
             />
-            <div class="ml-2">
+            <div class='ml-2'>
               <h3 class='text-xl font-semibold text-primary mb-2'>
                 Experiencia Legal Integral
               </h3>
-              <p class='text-foreground/80'>
+              <p class='text-foreground/90'>
                 Nuestro equipo de abogados especializados ofrece soluciones
                 legales completas y personalizadas para cada cliente, asegurando
                 la mejor representación en cada caso.
@@ -106,11 +108,11 @@ const partners: Partner[] = [
               alt='imagen de compromiso'
               class='max-w-20'
             />
-            <div class="ml-2">
+            <div class='ml-2'>
               <h3 class='text-xl font-semibold text-primary mb-2'>
                 Compromiso Total
               </h3>
-              <p class='text-foreground/80'>
+              <p class='text-foreground/90'>
                 Nos dedicamos a entender completamente las necesidades de
                 nuestros clientes, manteniéndolos informados y acompañados
                 durante todo el proceso legal.
@@ -126,11 +128,11 @@ const partners: Partner[] = [
               alt='imagen de respuesta inmediata'
               class='max-w-20'
             />
-            <div class="ml-2">
+            <div class='ml-2'>
               <h3 class='text-xl font-semibold text-primary mb-2'>
                 Respuesta Inmediata
               </h3>
-              <p class='text-foreground/80'>
+              <p class='text-foreground/90'>
                 Entendemos la importancia de la rapidez en asuntos legales.
                 Nuestro equipo está siempre disponible para responder a sus
                 necesidades de manera oportuna y eficiente.
@@ -142,9 +144,8 @@ const partners: Partner[] = [
 
       <!-- Socios -->
       <div id='socios' class='mt-24'>
-        <h2 class='text-3xl font-bold text-center text-gradient-primary mb-12'>
-          Nuestros Socios
-        </h2>
+        <SectionTitle title='Nuestros Socios' />
+
         <div class='grid md:grid-cols-3 gap-8'>
           {
             partners.map((partner) => (
@@ -163,7 +164,7 @@ const partners: Partner[] = [
                     </h3>
                     <p class='text-foreground/60 text-sm'>{partner.role}</p>
                   </div>
-                  <p class='text-foreground/80 text-sm leading-relaxed'>
+                  <p class='text-foreground/90 text-sm leading-relaxed'>
                     {partner.description}
                   </p>
                   <div class='flex flex-wrap gap-2'>
@@ -178,6 +179,53 @@ const partners: Partner[] = [
             ))
           }
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class='py-24 bg-muted'>
+  <!-- Clientes -->
+  <div class='container mx-auto px-4'>
+    <h2 class='text-3xl font-bold text-center mb-12'>
+      <Typography>Nuestros Clientes</Typography>
+    </h2>
+    <div class='grid grid-cols-2 md:grid-cols-4 gap-8 items-center'>
+      <div
+        class='p-6 bg-light/5 rounded-xl hover:bg-light/10 transition-all duration-300 flex items-center justify-center group'
+      >
+        <img
+          src='/images/clients/fybeca.png'
+          alt='Fybeca'
+          class='w-full max-w-[180px] opacity-75 group-hover:opacity-100 transition-opacity'
+        />
+      </div>
+      <div
+        class='p-6 bg-light/5 rounded-xl hover:bg-light/10 transition-all duration-300 flex items-center justify-center group'
+      >
+        <img
+          src='/images/clients/tuti.png'
+          alt='Tuti'
+          class='w-full max-w-[180px] opacity-75 group-hover:opacity-100 transition-opacity'
+        />
+      </div>
+      <div
+        class='p-6 bg-light/5 rounded-xl hover:bg-light/10 transition-all duration-300 flex items-center justify-center group'
+      >
+        <img
+          src='/images/clients/fybeca.png'
+          alt='Fybeca'
+          class='w-full max-w-[180px] opacity-75 group-hover:opacity-100 transition-opacity'
+        />
+      </div>
+      <div
+        class='p-6 bg-light/5 rounded-xl hover:bg-light/10 transition-all duration-300 flex items-center justify-center group'
+      >
+        <img
+          src='/images/clients/tuti.png'
+          alt='Tuti'
+          class='w-full max-w-[180px] opacity-75 group-hover:opacity-100 transition-opacity'
+        />
       </div>
     </div>
   </div>

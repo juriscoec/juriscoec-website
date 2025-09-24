@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource/great-vibes": "^5.2.8",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.13.10",
     "tailwindcss": "^4.1.13"

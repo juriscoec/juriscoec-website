@@ -1,21 +1,11 @@
 @import "tailwindcss";
 @import '@fontsource-variable/inter';
-
-@font-face {
-  font-family: 'Barlow Condensed';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src:
-    url('/fonts/barlow-condensed/barlow-condensed-latin-700-normal.woff2')
-      format('woff2'),
-    url('/fonts/barlow-condensed/barlow-condensed-latin-700-normal.woff')
-      format('woff');
-}
+@import '@fontsource/great-vibes';
 
 @theme {
   /* Fonts */
   --font-inter: 'Inter', sans-serif;
+  --font-great-vibes: 'Great Vibes', cursive;
 
   /* Colors */
   --color-primary: oklch(65.94% 0.098 27.51);
@@ -33,7 +23,7 @@
   --color-light: oklch(98% 0 none);
 
   --color-accent: oklch(60% 0.12 80);
-  --color-muted: oklch(85% 0.02 27.51);
+  --color-muted: oklch(0.92 0.02 27.45);
   --color-muted-warm: oklch(92% 0.02 40);
   --color-foreground: oklch(30% 0.03 40);
 
