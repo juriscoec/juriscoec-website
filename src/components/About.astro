@@ -50,9 +50,11 @@ const partners: Partner[] = [
 ]
 ---
 
-<section id='nosotros' class='py-24 overflow-hidden'>
-  <div class='container mx-auto px-4'>
-    <SectionTitle title='Sobre Nosotros' />
+<section id='nosotros' class='py-24 overflow-hidden relative'>
+  <div class='container mx-auto px-4 mt-5'>
+    <h2 class='text-4xl font-bold text-left mb-12'>
+      <Typography>Sobre Nosotros</Typography>
+    </h2>
 
     <div class='max-w-7xl mx-auto'>
       <!-- Contenido -->
@@ -72,7 +74,7 @@ const partners: Partner[] = [
           <div class='pt-4'>
             <a
               href='#socios'
-              class='btn bg-primary text-light px-6 py-3 text-lg hover:bg-primary-dark inline-block'
+              class='btn btn-primary btn-base'
             >
               Conoce a Nuestro Equipo
             </a>
@@ -182,9 +184,21 @@ const partners: Partner[] = [
       </div>
     </div>
   </div>
+
+  <div class='custom-shape-divider-top-1758733725'>
+    <svg
+      data-name='Layer 1'
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 1200 120'
+      preserveAspectRatio='none'
+    >
+      <path d='M1200 120L0 16.48 0 0 1200 0 1200 120z' class='shape-fill'
+      ></path>
+    </svg>
+  </div>
 </section>
 
-<section class='py-24 bg-muted'>
+<section class='pb-5 pt-10 bg-muted'>
   <!-- Clientes -->
   <div class='container mx-auto px-4'>
     <h2 class='text-3xl font-bold text-center mb-12'>
@@ -230,3 +244,25 @@ const partners: Partner[] = [
     </div>
   </div>
 </section>
+
+<style>
+  .custom-shape-divider-top-1758733725 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .custom-shape-divider-top-1758733725 svg {
+    position: relative;
+    display: block;
+    width: calc(189% + 1.3px);
+    height: 156px;
+  }
+
+  .custom-shape-divider-top-1758733725 .shape-fill {
+    fill: #bf8e8a;
+  }
+</style>
