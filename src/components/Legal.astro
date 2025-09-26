@@ -1,0 +1,130 @@
+---
+import Typography from "./Typography.astro";
+
+const legalDocs = [
+  {
+    title: "Política de Privacidad",
+    content: `En H&O, nos tomamos muy en serio la privacidad de nuestros clientes. Esta política describe cómo recopilamos, 
+    utilizamos y protegemos su información personal.
+
+    Recopilamos únicamente la información necesaria para brindar nuestros servicios legales y mejorar su experiencia. 
+    Sus datos están protegidos con las más altas medidas de seguridad y nunca se comparten con terceros sin su consentimiento expreso.
+    
+    Nuestro compromiso incluye:
+    • Protección integral de datos personales
+    • Transparencia en el uso de la información
+    • Acceso y control sobre sus datos
+    • Actualizaciones regulares de nuestras medidas de seguridad`
+  },
+  {
+    title: "Términos y condiciones",
+    content: `Los presentes términos y condiciones establecen las normas de uso de nuestros servicios legales.
+
+    Al contratar nuestros servicios, usted acepta:
+    • Proporcionar información veraz y actualizada
+    • Respetar los plazos y procedimientos establecidos
+    • Mantener la confidencialidad de las comunicaciones
+    • Cumplir con los acuerdos económicos establecidos
+    
+    Nos comprometemos a:
+    • Proporcionar servicios legales de alta calidad
+    • Mantener la confidencialidad cliente-abogado
+    • Actuar con profesionalidad y ética
+    • Mantener una comunicación clara y constante`
+  },
+  {
+    title: "Política SGSI CPA",
+    content: `Nuestra Política del Sistema de Gestión de Seguridad de la Información para la Confidencialidad Profesional Abogado-Cliente 
+    establece los lineamientos para proteger la información sensible.
+
+    Aspectos clave:
+    • Clasificación de la información según nivel de sensibilidad
+    • Protocolos de acceso y manejo de documentos
+    • Sistemas de encriptación y almacenamiento seguro
+    • Procedimientos de respuesta ante incidentes
+    
+    Revisamos y actualizamos regularmente nuestras políticas para mantener los más altos estándares de seguridad.`
+  },
+  {
+    title: "Política de protección de datos",
+    content: `En cumplimiento con las regulaciones de protección de datos, implementamos medidas técnicas y organizativas para 
+    salvaguardar su información personal.
+
+    Nuestras medidas incluyen:
+    • Evaluaciones regulares de riesgo
+    • Formación continua del personal
+    • Sistemas de seguridad actualizados
+    • Protocolos de gestión de datos
+    
+    Sus derechos incluyen acceso, rectificación, cancelación y oposición al tratamiento de sus datos personales.`
+  },
+  {
+    title: "Política SGSI H&O",
+    content: `El Sistema de Gestión de Seguridad de la Información de H&O establece los procedimientos y controles para proteger 
+    los activos de información de la firma.
+
+    Principales elementos:
+    • Gestión de accesos y autenticación
+    • Protección contra amenazas cibernéticas
+    • Continuidad del negocio y recuperación
+    • Auditorías de seguridad regulares
+    
+    Nuestro compromiso es mantener la confidencialidad, integridad y disponibilidad de la información.`
+  }
+];
+---
+
+<section class="legal-section py-16 px-4">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">
+      <Typography>Información Legal</Typography>
+    </h2>
+    
+    <div class="max-w-3xl mx-auto space-y-4">
+      {legalDocs.map(doc => (
+        <details class="bg-white shadow-lg rounded-lg">
+          <summary class="px-6 py-4 cursor-pointer font-semibold">
+            {doc.title}
+          </summary>
+          <div class="px-6 py-4 border-t">
+            <p class="whitespace-pre-line text-gray-700">
+              {doc.content}
+            </p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  details {
+    transition: all 0.3s ease;
+  }
+
+  details[open] {
+    margin-bottom: 1rem;
+  }
+
+  summary {
+    list-style: none;
+    position: relative;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::after {
+    content: '+';
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+  }
+
+  details[open] summary::after {
+    content: '-';
+  }
+</style>
