@@ -1,4 +1,5 @@
 ---
+import WhatsappButton from '../components/WhatsappButton.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -24,6 +25,7 @@ const {
 	</head>
 	<body class="font-inter text-foreground antialiased">
 		<slot />
+		<WhatsappButton />
 	</body>
 </html>
 
