@@ -56,18 +56,32 @@ export function ContactForm() {
             />
           </div>
           <div>
-            <label htmlFor='email' className='text-light mb-2 block'>
-              Email
+            <label htmlFor='telefono' className='text-light mb-2 block'>
+              Teléfono
             </label>
             <input
-              type='email'
-              id='email'
-              name='email'
+              type='tel'
+              id='telefono'
+              name='telefono'
               className='bg-light/5 border-light/10 text-light placeholder:text-light/50 focus:border-primary w-full rounded-lg border px-4 py-3 focus:outline-none'
-              placeholder='tu@email.com'
+              placeholder='+593 99 123 4567'
               required
             />
           </div>
+        </div>
+
+        <div>
+          <label htmlFor='email' className='text-light mb-2 block'>
+            Email
+          </label>
+          <input
+            type='email'
+            id='email'
+            name='email'
+            className='bg-light/5 border-light/10 text-light placeholder:text-light/50 focus:border-primary w-full rounded-lg border px-4 py-3 focus:outline-none'
+            placeholder='tu@email.com'
+            required
+          />
         </div>
 
         <div>
