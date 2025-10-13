@@ -8,8 +8,8 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { href: '#nosotros', text: 'NOSOTROS' },
-  { href: '#servicios', text: 'SERVICIOS' },
   { href: '#equipo', text: 'EQUIPO' },
+  { href: '#legal', text: 'LEGAL' },
   { href: '#contacto', text: 'CONTACTO' },
 ]
 
