@@ -5,8 +5,8 @@ import { isValidEmail, isValidPhone } from '../../lib/utils'
 
 export const POST: APIRoute = async ({ request }) => {
   try {
-    // Verify that content-type is JSON
     const contentType = request.headers.get('content-type')
+
     if (!contentType?.includes('application/json')) {
       return new Response(
         JSON.stringify({ 
@@ -20,13 +20,13 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     const body: ClientData = await request.json()
-    const { nombre, email, telefono } = body
+    const { nombre, correo, telefono } = body
 
     // Required fields validation
-    if (!nombre || !email || !telefono) {
+    if (!nombre || !correo || !telefono) {
       return new Response(
         JSON.stringify({ 
-          error: 'Fields nombre, email and telefono are required' 
+          error: 'Fields nombre, correo and telefono are required' 
         }),
         {
           status: 400,
@@ -35,7 +35,6 @@ export const POST: APIRoute = async ({ request }) => {
       )
     }
 
-    // Validate that fields are strings and not empty
     if (typeof nombre !== 'string' || nombre.trim().length === 0) {
       return new Response(
         JSON.stringify({ 
@@ -48,10 +47,10 @@ export const POST: APIRoute = async ({ request }) => {
       )
     }
 
-    if (typeof email !== 'string' || !isValidEmail(email)) {
+    if (typeof correo !== 'string' || !isValidEmail(correo)) {
       return new Response(
         JSON.stringify({ 
-          error: 'Email must have a valid format' 
+          error: 'correo must have a valid format' 
         }),
         {
           status: 400,
@@ -74,18 +73,17 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Clean and normalize data
     const cleanName = nombre.trim()
-    const cleanEmail = email.trim().toLowerCase()
+    const cleanEmail = correo.trim().toLowerCase()
     const cleanPhone = telefono.trim()
 
     // Try to insert into database
     const result = await db.query(
-      'INSERT INTO juriscoec_clientes (nombre, email, telefono) VALUES ($1, $2, $3) RETURNING *',
+      'INSERT INTO juriscoec_clientes (nombre, correo, telefono) VALUES ($1, $2, $3) RETURNING *',
       [cleanName, cleanEmail, cleanPhone]
     )
 
     return new Response(JSON.stringify({
       success: true,
-      data: result.rows[0],
       message: 'Client registered successfully'
     }), {
       status: 201,
@@ -93,14 +91,11 @@ export const POST: APIRoute = async ({ request }) => {
     })
 
   } catch (error: any) {
-    console.error('Error registering client:', error)
-
-    // Handle PostgreSQL constraint errors (duplicate values)
     if (error.code === '23505') {
       let message = 'A client with these details already exists'
       
-      if (error.constraint?.includes('email')) {
-        message = 'A client with this email is already registered'
+      if (error.constraint?.includes('correo')) {
+        message = 'A client with this correo is already registered'
       } else if (error.constraint?.includes('telefono')) {
         message = 'A client with this phone number is already registered'
       }
