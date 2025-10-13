@@ -47,6 +47,12 @@ importers:
       tailwindcss:
         specifier: ^4.1.13
         version: 4.1.13
+      tailwindcss-animated:
+        specifier: ^2.0.0
+        version: 2.0.0(tailwindcss@4.1.13)
+      tailwindcss-intersect:
+        specifier: ^2.2.0
+        version: 2.2.0(tailwindcss@4.1.13)
     devDependencies:
       '@types/pg':
         specifier: ^8.15.5
@@ -2333,6 +2339,16 @@ packages:
   synckit@0.11.11:
     resolution: {integrity: sha512-MeQTA1r0litLUf0Rp/iisCaL8761lKAZHaimlbGK4j0HysC4PLfqygQj9srcs0m2RdtDYnF8UuYyKpbjHYp7Jw==}
     engines: {node: ^14.18.0 || >=16.0.0}
+
+  tailwindcss-animated@2.0.0:
+    resolution: {integrity: sha512-anNNGpxNgjydD8p1lcJjxxH+XbjW6KR8Xs29owTrbcf3tOJ6IRblpyFob43HBkfxFJJTAfFQqugoEG2b1EsR0A==}
+    peerDependencies:
+      tailwindcss: '>=3.1.0 || >=4.0.0'
+
+  tailwindcss-intersect@2.2.0:
+    resolution: {integrity: sha512-LnOQ/iU44jNQ8k3OExa7Ccv/y5NlzAN574jjDnX5gLCdlqoeUT5ADtTznF92oAdon3NZA69b+JLknahbwsqxDA==}
+    peerDependencies:
+      tailwindcss: '>=3.2.0 || >=4.0.0'
 
   tailwindcss@4.1.13:
     resolution: {integrity: sha512-i+zidfmTqtwquj4hMEwdjshYYgMbOrPzb9a0M3ZgNa0JMoZeFC6bxZvO8yr8ozS6ix2SDz0+mvryPeBs2TFE+w==}
@@ -5203,6 +5219,14 @@ snapshots:
   synckit@0.11.11:
     dependencies:
       '@pkgr/core': 0.2.9
+
+  tailwindcss-animated@2.0.0(tailwindcss@4.1.13):
+    dependencies:
+      tailwindcss: 4.1.13
+
+  tailwindcss-intersect@2.2.0(tailwindcss@4.1.13):
+    dependencies:
+      tailwindcss: 4.1.13
 
   tailwindcss@4.1.13: {}
 

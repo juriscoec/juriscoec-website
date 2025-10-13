@@ -53,7 +53,7 @@ export function ContactForm() {
   }
 
   return (
-    <div className='bg-light/10 rounded-xl p-8 backdrop-blur'>
+    <div className='bg-light/10 rounded-xl p-8 backdrop-blur intersect:animate-fade-left'>
       <form className='space-y-6' onSubmit={handleSubmit}>
         <div className='grid gap-6 sm:grid-cols-2'>
           <div>

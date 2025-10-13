@@ -1,43 +1,48 @@
 ---
-import { Toaster } from 'sonner';
-import WhatsappButton from '../components/WhatsappButton.astro';
-import '../styles/global.css';
+import { Toaster } from 'sonner'
+import WhatsappButton from '../components/WhatsappButton.astro'
+import '../styles/global.css'
 
 interface Props {
-  title?: string;
-  description?: string;
+  title?: string
+  description?: string
 }
 
-const { 
-  title = "Bufete Legal | Expertos en Derecho",
-  description = "Firma de abogados especializada en derecho civil, mercantil y laboral. Más de 20 años de experiencia."
-} = Astro.props;
+const {
+  title = 'Bufete Legal | Expertos en Derecho',
+  description = 'Firma de abogados especializada en derecho civil, mercantil y laboral. Más de 20 años de experiencia.',
+} = Astro.props
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="description" content={description} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class="font-inter text-foreground antialiased">
-		<slot />
-		<Toaster richColors closeButton client:load />
-		<WhatsappButton />
-	</body>
+<html lang='es' class='scroll-smooth'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='description' content={description} />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class='font-inter text-foreground antialiased'>
+    <slot />
+    <Toaster richColors closeButton client:load />
+    <WhatsappButton />
+  </body>
 </html>
 
 <style>
-	html {
-		font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-	}
-	
-	body {
-		margin: 0;
-		min-height: 100vh;
-	}
+  html {
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
 </style>
+
+<script>
+  import { Observer } from 'tailwindcss-intersect'
+  Observer.start()
+</script>

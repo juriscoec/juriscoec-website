@@ -72,10 +72,7 @@ const partners: Partner[] = [
           </p>
 
           <div class='pt-4'>
-            <a
-              href='#equipo'
-              class='btn btn-primary btn-base'
-            >
+            <a href='#equipo' class='btn btn-primary btn-base'>
               Conoce a Nuestro Equipo
             </a>
           </div>
@@ -83,7 +80,7 @@ const partners: Partner[] = [
 
         <div class='grid gap-4'>
           <div
-            class='flex items-center gap-4 bg-light/5 rounded-lg hover:bg-light/10 transition-colors'
+            class='flex items-center gap-4 bg-light/5 rounded-lg hover:bg-light/10 transition-colors intersect:animate-fade-left intersect-once'
           >
             <img
               src='/images/png-icons/legal.png'
@@ -103,7 +100,7 @@ const partners: Partner[] = [
           </div>
 
           <div
-            class='flex items-center gap-4 bg-light/5 rounded-lg hover:bg-light/10 transition-colors'
+            class='flex items-center gap-4 bg-light/5 rounded-lg hover:bg-light/10 transition-colors intersect:animate-fade-left animate-delay-300 intersect-once'
           >
             <img
               src='/images/png-icons/compromiso.png'
@@ -123,7 +120,7 @@ const partners: Partner[] = [
           </div>
 
           <div
-            class='flex items-center gap-4 bg-light/5 rounded-lg hover:bg-light/10 transition-colors'
+            class='flex items-center gap-4 bg-light/5 rounded-lg hover:bg-light/10 transition-colors intersect:animate-fade-left animate-delay-600 intersect-once'
           >
             <img
               src='/images/png-icons/respuesta.png'
@@ -151,7 +148,7 @@ const partners: Partner[] = [
         <div class='grid md:grid-cols-3 gap-8'>
           {
             partners.map((partner) => (
-              <article class='bg-light/5 rounded-xl overflow-hidden hover:bg-light/10 transition-all duration-300 shadow-md hover:shadow-lg'>
+              <article class='bg-light/5 rounded-xl overflow-hidden hover:bg-light/10 transition-all duration-300 shadow-md hover:shadow-lg invisible intersect:visible intersect:animate-fade-up intersect-half intersect-once'>
                 <div class='aspect-[4/3] overflow-hidden'>
                   <img
                     src={partner.image}
