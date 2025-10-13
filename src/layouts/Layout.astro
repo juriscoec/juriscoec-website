@@ -1,5 +1,6 @@
 ---
 import { Toaster } from 'sonner'
+import Footer from '../components/Footer.astro'
 import WhatsappButton from '../components/WhatsappButton.astro'
 import '../styles/global.css'
 
@@ -26,6 +27,7 @@ const {
   </head>
   <body class='font-inter text-foreground antialiased'>
     <slot />
+    <Footer />
     <Toaster richColors closeButton client:load />
     <WhatsappButton />
   </body>
