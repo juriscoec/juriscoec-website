@@ -56,10 +56,12 @@ export default function Header() {
         <div className="container mx-auto">
           <nav className="flex items-center justify-between h-24">
             {/* Logo */}
-            <a href="/">
+            <a href="/" aria-label='Home Link'>
               <img
                 src="/images/logo.png"
                 alt="Logo Bufete Legal"
+                loading='eager'
+                fetchPriority='high'
                 className="h-16 md:h-20 object-contain"
               />
             </a>

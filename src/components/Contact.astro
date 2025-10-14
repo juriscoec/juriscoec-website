@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets'
 import { ContactForm } from './react/ContactForm'
 import Typography from './ui/Typography.astro'
 
@@ -36,10 +37,12 @@ const contactInfo: ContactInfo[] = [
 ]
 ---
 
-<section id='contacto' class='relative min-h-screen flex items-center py-24'>
+<section id='contacto' class='relative flex items-center py-24'>
   <picture class='absolute inset-0 -z-10'>
     <source media='(min-width: 768px)' srcset='/images/contact-bg.jpg' />
-    <img
+    <Image
+      width={1920}
+      height={1080}
       src='/images/contact-bg-mobile.jpg'
       alt='Fondo de contacto'
       class='w-full h-full object-cover'

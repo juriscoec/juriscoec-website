@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets"
+
 const currentYear = new Date().getFullYear()
 
 const navigationLinks = [
@@ -43,7 +45,9 @@ const contactInfo = {
     <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
       <!-- Logo y descripción -->
       <div class='space-y-4'>
-        <img
+        <Image
+          width={80}
+          height={50}
           src='/images/logo.png'
           alt='Juriscoec Logo'
           class='h-12 object-contain'
