@@ -1,100 +1,102 @@
 ---
-import { ContactForm } from "./react/ContactForm";
-import Typography from "./ui/Typography.astro";
+import { ContactForm } from './react/ContactForm'
+import Typography from './ui/Typography.astro'
 
 interface ContactInfo {
-  icon: string;
-  title: string;
-  content: string;
-  link?: string;
+  icon: string
+  title: string
+  content: string
+  link?: string
 }
 
 const contactInfo: ContactInfo[] = [
   {
-    icon: "📍",
-    title: "Dirección",
-    content: "Av. Principal 123, Edificio Legal, Piso 15",
-    link: "https://maps.google.com"
+    icon: '📍',
+    title: 'Dirección',
+    content: 'Av. Principal 123, Edificio Legal, Piso 15',
+    link: 'https://maps.google.com',
   },
   {
-    icon: "📞",
-    title: "Teléfono",
-    content: "+593 (2) 234-5678",
-    link: "tel:+59322345678"
+    icon: '📞',
+    title: 'Teléfono',
+    content: '+593 (2) 234-5678',
+    link: 'tel:+59322345678',
   },
   {
-    icon: "✉️",
-    title: "Email",
-    content: "abogadazo@juriscoec.com",
-    link: "mailto:abogadazo@juriscoec.com"
+    icon: '✉️',
+    title: 'Email',
+    content: 'abogadazo@juriscoec.com',
+    link: 'mailto:abogadazo@juriscoec.com',
   },
   {
-    icon: "⏰",
-    title: "Horario",
-    content: "Lunes a Viernes: 8:00 AM - 6:00 PM"
-  }
-];
+    icon: '⏰',
+    title: 'Horario',
+    content: 'Lunes a Viernes: 8:00 AM - 6:00 PM',
+  },
+]
 ---
 
-<section id="contacto" class="relative min-h-screen flex items-center py-24">
-  <picture class="absolute inset-0 -z-10">
-    <source
-      media="(min-width: 768px)"
-      srcset="/images/contact-bg.jpg"
-    />
+<section id='contacto' class='relative min-h-screen flex items-center py-24'>
+  <picture class='absolute inset-0 -z-10'>
+    <source media='(min-width: 768px)' srcset='/images/contact-bg.jpg' />
     <img
-      src="/images/contact-bg-mobile.jpg"
-      alt="Fondo de contacto"
-      class="w-full h-full object-cover"
+      src='/images/contact-bg-mobile.jpg'
+      alt='Fondo de contacto'
+      class='w-full h-full object-cover'
     />
   </picture>
 
-  <div class="absolute inset-0 bg-black/70 -z-10"></div>
+  <div class='absolute inset-0 bg-black/70 -z-10'></div>
 
-  <div class="container mx-auto px-4">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid lg:grid-cols-2 gap-12">
-        <div class="space-y-8">
-          <div>
-            <h2 class="font-bold text-gradient-primary mb-4 pt-1">
-              <Typography>Contáctenos</Typography>
-            </h2>
-            <p class="text-xl text-light leading-relaxed">
-              Estamos aquí para ayudarte. Ponte en contacto con nosotros y te responderemos a la brevedad posible.
-            </p>
-          </div>
-
-          <div class="grid sm:grid-cols-2 gap-6">
-            {
-              contactInfo.map(info => (
-                <div class="bg-light/10 backdrop-blur rounded-lg p-6 hover:bg-light/15 transition-colors">
-                  <div class="flex items-start gap-4">
-                    <span class="text-2xl">{info.icon}</span>
-                    <div>
-                      <h3 class="text-light font-semibold mb-2">{info.title}</h3>
-                      {info.link ? (
-                        <a
-                          href={info.link}
-                          class="text-light/80 hover:text-primary transition-colors"
-                          target={info.link.startsWith('http') ? '_blank' : undefined}
-                          rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        >
-                          {info.content}
-                        </a>
-                      ) : (
-                        <p class="text-light/80">{info.content}</p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))
-            }
-          </div>
+  <div class='container mx-auto'>
+    <div class='grid lg:grid-cols-2 gap-12'>
+      <div class='space-y-8'>
+        <div>
+          <h2 class='font-bold text-gradient-primary mb-4 pt-1'>
+            <Typography>Contáctenos</Typography>
+          </h2>
+          <p class='text-xl text-light leading-relaxed'>
+            Estamos aquí para ayudarte. Ponte en contacto con nosotros y te
+            responderemos a la brevedad posible.
+          </p>
         </div>
 
-        <!-- Formulario de contacto -->
-        <ContactForm client:load />
+        <div class='grid sm:grid-cols-2 gap-6'>
+          {
+            contactInfo.map((info) => (
+              <div class='bg-light/10 backdrop-blur rounded-lg p-6 hover:bg-light/15 transition-colors'>
+                <div class='flex items-start gap-4'>
+                  <span class='text-2xl'>{info.icon}</span>
+                  <div>
+                    <h3 class='text-light font-semibold mb-2'>{info.title}</h3>
+                    {info.link ? (
+                      <a
+                        href={info.link}
+                        class='text-light/80 hover:text-primary transition-colors'
+                        target={
+                          info.link.startsWith('http') ? '_blank' : undefined
+                        }
+                        rel={
+                          info.link.startsWith('http')
+                            ? 'noopener noreferrer'
+                            : undefined
+                        }
+                      >
+                        {info.content}
+                      </a>
+                    ) : (
+                      <p class='text-light/80'>{info.content}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
       </div>
+
+      <!-- Formulario de contacto -->
+      <ContactForm client:load />
     </div>
   </div>
 </section>

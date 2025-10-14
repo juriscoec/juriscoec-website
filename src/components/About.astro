@@ -51,133 +51,129 @@ const partners: Partner[] = [
 ---
 
 <section id='nosotros' class='py-24 overflow-hidden relative'>
-  <div class='container mx-auto px-4 mt-5'>
+  <div class='container mx-auto mt-5'>
     <h2 class='text-4xl font-bold text-left mb-12'>
       <Typography>Sobre Nosotros</Typography>
     </h2>
 
-    <div class='max-w-7xl mx-auto'>
-      <!-- Contenido -->
-      <div class='grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 items-start'>
-        <div class='space-y-8'>
-          <h3 class='text-3xl font-bold text-gradient-primary'>
-            Experiencia y compromiso en cada caso
-          </h3>
+    <!-- Contenido -->
+    <div class='grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 items-start'>
+      <div class='space-y-8'>
+        <h3 class='text-3xl font-bold text-gradient-primary'>
+          Experiencia y compromiso en cada caso
+        </h3>
 
-          <p class='text-xl text-foreground leading-relaxed'>
-            Desde hace más de dos décadas, nuestro bufete ha sido sinónimo de
-            excelencia legal y compromiso inquebrantable con nuestros clientes.
-            Nos enorgullece ofrecer un servicio legal integral, donde cada caso
-            recibe la atención personalizada que merece.
-          </p>
+        <p class='text-xl text-foreground leading-relaxed'>
+          Desde hace más de dos décadas, nuestro bufete ha sido sinónimo de
+          excelencia legal y compromiso inquebrantable con nuestros clientes.
+          Nos enorgullece ofrecer un servicio legal integral, donde cada caso
+          recibe la atención personalizada que merece.
+        </p>
 
-          <div class='pt-4'>
-            <a href='#equipo' class='btn btn-primary btn-base'>
-              Conoce a Nuestro Equipo
-            </a>
-          </div>
-        </div>
-
-        <div class='grid gap-4'>
-          <div
-            class='flex items-center gap-4 bg-light/5 rounded-lg hover:bg-light/10 transition-colors intersect:animate-fade-left intersect-once'
-          >
-            <img
-              src='/images/png-icons/legal.png'
-              alt='imagen de asuntos legales'
-              class='max-w-20'
-            />
-            <div class='ml-2'>
-              <h3 class='text-xl font-semibold text-primary mb-2'>
-                Experiencia Legal Integral
-              </h3>
-              <p class='text-foreground/90'>
-                Nuestro equipo de abogados especializados ofrece soluciones
-                legales completas y personalizadas para cada cliente, asegurando
-                la mejor representación en cada caso.
-              </p>
-            </div>
-          </div>
-
-          <div
-            class='flex items-center gap-4 bg-light/5 rounded-lg hover:bg-light/10 transition-colors intersect:animate-fade-left animate-delay-300 intersect-once'
-          >
-            <img
-              src='/images/png-icons/compromiso.png'
-              alt='imagen de compromiso'
-              class='max-w-20'
-            />
-            <div class='ml-2'>
-              <h3 class='text-xl font-semibold text-primary mb-2'>
-                Compromiso Total
-              </h3>
-              <p class='text-foreground/90'>
-                Nos dedicamos a entender completamente las necesidades de
-                nuestros clientes, manteniéndolos informados y acompañados
-                durante todo el proceso legal.
-              </p>
-            </div>
-          </div>
-
-          <div
-            class='flex items-center gap-4 bg-light/5 rounded-lg hover:bg-light/10 transition-colors intersect:animate-fade-left animate-delay-600 intersect-once'
-          >
-            <img
-              src='/images/png-icons/respuesta.png'
-              alt='imagen de respuesta inmediata'
-              class='max-w-20'
-            />
-            <div class='ml-2'>
-              <h3 class='text-xl font-semibold text-primary mb-2'>
-                Respuesta Inmediata
-              </h3>
-              <p class='text-foreground/90'>
-                Entendemos la importancia de la rapidez en asuntos legales.
-                Nuestro equipo está siempre disponible para responder a sus
-                necesidades de manera oportuna y eficiente.
-              </p>
-            </div>
-          </div>
+        <div class='pt-4'>
+          <a href='#equipo' class='btn btn-primary btn-base'>
+            Conoce a Nuestro Equipo
+          </a>
         </div>
       </div>
 
-      <!-- Socios -->
-      <div id='equipo' class='mt-24'>
-        <SectionTitle title='Nuestros Socios' />
-
-        <div class='grid md:grid-cols-3 gap-8'>
-          {
-            partners.map((partner) => (
-              <article class='bg-light/5 rounded-xl overflow-hidden hover:bg-light/10 transition-all duration-300 shadow-md hover:shadow-lg invisible intersect:visible intersect:animate-fade-up intersect-half intersect-once'>
-                <div class='aspect-[4/3] overflow-hidden'>
-                  <img
-                    src={partner.image}
-                    alt={partner.name}
-                    class='w-full h-full object-cover hover:scale-105 transition-transform duration-300'
-                  />
-                </div>
-                <div class='p-6 space-y-4'>
-                  <div>
-                    <h3 class='text-xl font-bold text-primary'>
-                      {partner.name}
-                    </h3>
-                    <p class='text-foreground/60 text-sm'>{partner.role}</p>
-                  </div>
-                  <p class='text-foreground/90 text-sm leading-relaxed'>
-                    {partner.description}
-                  </p>
-                  <div class='flex flex-wrap gap-2'>
-                    {partner.specialties.map((specialty) => (
-                      <span class='text-xs px-2 py-1 bg-primary/10 text-black rounded-full'>
-                        {specialty}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            ))
-          }
+      <div class='grid gap-4'>
+        <div
+          class='flex items-center gap-4 bg-light/5 rounded-lg hover:bg-light/10 transition-colors intersect:animate-fade-left intersect-once'
+        >
+          <img
+            src='/images/png-icons/legal.png'
+            alt='imagen de asuntos legales'
+            class='max-w-20'
+          />
+          <div class='ml-2'>
+            <h3 class='text-xl font-semibold text-primary mb-2'>
+              Experiencia Legal Integral
+            </h3>
+            <p class='text-foreground/90'>
+              Nuestro equipo de abogados especializados ofrece soluciones
+              legales completas y personalizadas para cada cliente, asegurando
+              la mejor representación en cada caso.
+            </p>
+          </div>
         </div>
+
+        <div
+          class='flex items-center gap-4 bg-light/5 rounded-lg hover:bg-light/10 transition-colors intersect:animate-fade-left animate-delay-300 intersect-once'
+        >
+          <img
+            src='/images/png-icons/compromiso.png'
+            alt='imagen de compromiso'
+            class='max-w-20'
+          />
+          <div class='ml-2'>
+            <h3 class='text-xl font-semibold text-primary mb-2'>
+              Compromiso Total
+            </h3>
+            <p class='text-foreground/90'>
+              Nos dedicamos a entender completamente las necesidades de nuestros
+              clientes, manteniéndolos informados y acompañados durante todo el
+              proceso legal.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class='flex items-center gap-4 bg-light/5 rounded-lg hover:bg-light/10 transition-colors intersect:animate-fade-left animate-delay-600 intersect-once'
+        >
+          <img
+            src='/images/png-icons/respuesta.png'
+            alt='imagen de respuesta inmediata'
+            class='max-w-20'
+          />
+          <div class='ml-2'>
+            <h3 class='text-xl font-semibold text-primary mb-2'>
+              Respuesta Inmediata
+            </h3>
+            <p class='text-foreground/90'>
+              Entendemos la importancia de la rapidez en asuntos legales.
+              Nuestro equipo está siempre disponible para responder a sus
+              necesidades de manera oportuna y eficiente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Socios -->
+    <div id='equipo' class='mt-24'>
+      <SectionTitle title='Nuestros Socios' />
+
+      <div class='grid md:grid-cols-3 gap-8'>
+        {
+          partners.map((partner) => (
+            <article class='bg-light/5 rounded-xl overflow-hidden hover:bg-light/10 transition-all duration-300 shadow-md hover:shadow-lg invisible intersect:visible intersect:animate-fade-up intersect-half intersect-once'>
+              <div class='aspect-[4/3] overflow-hidden'>
+                <img
+                  src={partner.image}
+                  alt={partner.name}
+                  class='w-full h-full object-cover hover:scale-105 transition-transform duration-300'
+                />
+              </div>
+              <div class='p-6 space-y-4'>
+                <div>
+                  <h3 class='text-xl font-bold text-primary'>{partner.name}</h3>
+                  <p class='text-foreground/60 text-sm'>{partner.role}</p>
+                </div>
+                <p class='text-foreground/90 text-sm leading-relaxed'>
+                  {partner.description}
+                </p>
+                <div class='flex flex-wrap gap-2'>
+                  {partner.specialties.map((specialty) => (
+                    <span class='text-xs px-2 py-1 bg-primary/10 text-black rounded-full'>
+                      {specialty}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))
+        }
       </div>
     </div>
   </div>

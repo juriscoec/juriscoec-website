@@ -53,7 +53,7 @@ export default function Header() {
   return (
     <>
       <header className={headerClasses}>
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <nav className="flex items-center justify-between h-24">
             {/* Logo */}
             <a href="/">
