@@ -64,7 +64,7 @@ export function MobileHeader({ isOpen, onClose, navLinks }: MobileHeaderProps) {
         {/* Header */}
         <div className='flex items-center justify-between border-b border-gray-200 p-6 mt-5'>
           <img
-            src='/images/logo.png'
+            src='/images/logo.webp'
             alt='Logo Z&O'
             className='h-12 object-contain'
           />

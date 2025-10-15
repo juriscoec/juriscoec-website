@@ -5,10 +5,12 @@ import { Image } from "astro:assets";
 <section class='relative min-h-screen'>
   <div class='absolute inset-0'>
     <Image
-      width={1920}
-      height={1080}
-      src='/images/hero-bg.jpg'
+      width={1692}
+      height={1113}
+      src='/images/hero-bg.webp'
       alt='Fondo Bufete Legal'
+      loading='eager'
+      fetchpriority='high'
       class='w-full h-full object-cover'
     />
     <div

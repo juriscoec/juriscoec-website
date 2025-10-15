@@ -58,7 +58,7 @@ export default function Header() {
             {/* Logo */}
             <a href="/" aria-label='Home Link'>
               <img
-                src="/images/logo.png"
+                src="/images/logo.webp"
                 alt="Logo Bufete Legal"
                 loading='eager'
                 fetchPriority='high'
