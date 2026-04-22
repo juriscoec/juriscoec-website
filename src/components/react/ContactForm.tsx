@@ -5,9 +5,31 @@ import type { ClientData, ContactFormData } from '../../../types'
 import { registerClient } from '../../services/clients'
 import { validateContactForm } from '../../lib/utils'
 
-export function ContactForm() {
+interface ContactFormProps {
+  variant?: 'light' | 'dark'
+}
+
+export function ContactForm({ variant = 'dark' }: ContactFormProps) {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+
+  const isLight = variant === 'light'
+
+  const cardClasses = isLight
+    ? 'rounded-2xl border border-black/10 bg-white p-6 shadow-[0_18px_50px_rgba(70,38,31,0.12)] sm:p-8'
+    : 'bg-light/10 rounded-xl p-8 backdrop-blur intersect:animate-fade-up lg:intersect:animate-fade-left'
+
+  const labelClasses = isLight
+    ? 'mb-2 block text-sm font-medium text-foreground'
+    : 'text-light mb-2 block'
+
+  const inputClasses = isLight
+    ? 'w-full rounded-lg border border-black/15 bg-white px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-primary focus:outline-none'
+    : 'bg-light/5 border-light/10 text-light placeholder:text-light/50 focus:border-primary w-full rounded-lg border px-4 py-1.5 focus:outline-none'
+
+  const buttonClasses = isLight
+    ? 'btn btn-primary btn-base w-full'
+    : 'btn btn-primary btn-base w-full'
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -53,31 +75,31 @@ export function ContactForm() {
   }
 
   return (
-    <div className='bg-light/10 rounded-xl p-8 backdrop-blur intersect:animate-fade-up lg:intersect:animate-fade-left'>
-      <form className='space-y-6' onSubmit={handleSubmit}>
+    <div className={cardClasses}>
+      <form className='space-y-5' onSubmit={handleSubmit}>
         <div className='grid gap-6 sm:grid-cols-2'>
           <div>
-            <label htmlFor='name' className='text-light mb-2 block'>
+            <label htmlFor='name' className={labelClasses}>
               Nombre:
             </label>
             <input
               type='text'
               id='name'
               name='name'
-              className='bg-light/5 border-light/10 text-light placeholder:text-light/50 focus:border-primary w-full rounded-lg border px-4 py-1.5 focus:outline-none'
+              className={inputClasses}
               placeholder='Jhon Doe'
               required
             />
           </div>
           <div>
-            <label htmlFor='phone' className='text-light mb-2 block'>
+            <label htmlFor='phone' className={labelClasses}>
               Teléfono:
             </label>
             <input
               type='tel'
               id='phone'
               name='phone'
-              className='bg-light/5 border-light/10 text-light placeholder:text-light/50 focus:border-primary w-full rounded-lg border px-4 py-1.5 focus:outline-none'
+              className={inputClasses}
               placeholder='099 123 4567'
               required
             />
@@ -85,52 +107,48 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor='email' className='text-light mb-2 block'>
+          <label htmlFor='email' className={labelClasses}>
             Email:
           </label>
           <input
             type='email'
             id='email'
             name='email'
-            className='bg-light/5 border-light/10 text-light placeholder:text-light/50 focus:border-primary w-full rounded-lg border px-4 py-1.5 focus:outline-none'
+            className={inputClasses}
             placeholder='tu@email.com'
             required
           />
         </div>
 
         <div>
-          <label htmlFor='subject' className='text-light mb-2 block'>
+          <label htmlFor='subject' className={labelClasses}>
             Asunto:
           </label>
           <input
             type='text'
             id='subject'
             name='subject'
-            className='bg-light/5 border-light/10 text-light placeholder:text-light/50 focus:border-primary w-full rounded-lg border px-4 py-1.5 focus:outline-none'
+            className={inputClasses}
             placeholder='Asunto de tu mensaje'
             required
           />
         </div>
 
         <div>
-          <label htmlFor='message' className='text-light mb-2 block'>
+          <label htmlFor='message' className={labelClasses}>
             Mensaje:
           </label>
           <textarea
             id='message'
             name='message'
             rows={3}
-            className='bg-light/5 border-light/10 text-light placeholder:text-light/50 focus:border-primary w-full resize-none rounded-lg border px-4 py-1.5 focus:outline-none'
+            className={inputClasses + ' min-h-32 resize-none py-3'}
             placeholder='Escribe tu mensaje aquí...'
             required
           ></textarea>
         </div>
 
-        <button
-          type='submit'
-          disabled={loading}
-          className='btn btn-primary btn-base w-full'
-        >
+        <button type='submit' disabled={loading} className={buttonClasses}>
           {loading ? (
             <>
               <Spinner />
@@ -149,7 +167,7 @@ function Spinner() {
   return (
     <svg
       aria-hidden='true'
-      className='h-5 w-5 animate-spin fill-white text-gray-200 dark:text-gray-400'
+      className='h-5 w-5 animate-spin fill-white text-gray-200'
       viewBox='0 0 100 101'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'

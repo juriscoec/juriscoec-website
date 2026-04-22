@@ -1,8 +1,8 @@
 ---
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets'
 ---
 
-<section class='relative min-h-screen'>
+<section class='relative overflow-hidden h-[83vh]'>
   <div class='absolute inset-0'>
     <Image
       width={1692}
@@ -11,7 +11,7 @@ import { Image } from "astro:assets";
       alt='Fondo Bufete Legal'
       loading='eager'
       fetchpriority='high'
-      class='w-full h-full object-cover'
+      class='w-full h-full object-cover hero-bg-motion'
     />
     <div
       class='absolute inset-0 bg-gradient-to-r from-dark/95 via-dark/70 to-dark/30'
@@ -19,20 +19,22 @@ import { Image } from "astro:assets";
     </div>
   </div>
 
-  <div
-    class='container mx-auto pt-32 pb-24 h-[100svh] flex flex-col justify-center relative'
-  >
+  <div class='container mx-auto h-full flex flex-col justify-center relative'>
     <div class='max-w-4xl mt-10'>
       <h1
-        class='text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-light intersect:animate-fade-up'
+        class='max-w-4xl text-3xl font-bold leading-tight text-light sm:text-4xl md:text-6xl intersect:animate-fade-up'
       >
-        Defendemos tus derechos con <span class='text-gradient-primary'
-          >excelencia</span
-        > y dedicación
+        Firma jurídica <span class='text-gradient-primary'>binacional</span> con
+        presencia en Ecuador y Colombia
       </h1>
-      <p class='text-lg sm:text-xl md:text-2xl text-light/90 mb-6 max-w-2xl'>
-        Más de 20 años de experiencia respaldando a nuestros clientes con
-        soluciones legales efectivas y personalizadas.
+      <p
+        class='mt-5 max-w-2xl border-l-2 border-primary/80 pl-4 text-base italic text-light/90 sm:text-lg mb-8'
+      >
+        <span
+          id='hero-slogan-text'
+          class='hero-typewriter'
+          data-text='“No solo defendemos casos, defendemos personas.”'></span>
+        <span class='hero-cursor' aria-hidden='true'></span>
       </p>
       <div class='flex flex-col sm:flex-row gap-4'>
         <a href='#contacto' class='btn btn-base sm:btn-lg btn-primary'>
@@ -45,3 +47,77 @@ import { Image } from "astro:assets";
     </div>
   </div>
 </section>
+
+<style>
+  .hero-bg-motion {
+    transform: scale(1);
+    animation: heroScaleSlow 36s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes heroScaleSlow {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+  .hero-typewriter {
+    min-height: 1.5em;
+  }
+
+  .hero-cursor {
+    display: inline-block;
+    width: 1px;
+    height: 1em;
+    margin-left: 4px;
+    background: currentColor;
+    vertical-align: -0.1em;
+    animation: blinkCursor 1s step-end infinite;
+  }
+
+  .hero-cursor.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    animation: none;
+  }
+
+  @keyframes blinkCursor {
+    0%,
+    50% {
+      opacity: 1;
+    }
+
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  const slogan = document.getElementById('hero-slogan-text')
+  const cursor = document.querySelector('.hero-cursor')
+
+  if (slogan && slogan.dataset.text && slogan.dataset.typed !== 'true') {
+    const fullText = slogan.dataset.text
+    slogan.dataset.typed = 'true'
+    slogan.textContent = ''
+
+    let index = 0
+    const typeNext = () => {
+      if (index <= fullText.length) {
+        slogan.textContent = fullText.slice(0, index)
+        index += 1
+        window.setTimeout(typeNext, 45)
+      } else {
+        cursor?.classList.add('is-hidden')
+      }
+    }
+
+    window.setTimeout(typeNext, 250)
+  }
+</script>

@@ -13,39 +13,23 @@ interface Partner {
 
 const partners: Partner[] = [
   {
-    name: 'Carlos Rodríguez',
-    role: 'Socio Fundador',
-    image: '/images/partners/partner-1.jpg',
+    name: 'Dra. Nathalia Zúñiga Ordoñez',
+    role: 'Abogada, Magíster en Arbitraje Internacional y mediadora certificada',
+    image: '/images/partners/nathalia-zuniga.png',
     description:
-      'Con más de 25 años de experiencia en derecho corporativo y comercial. Especialista en fusiones y adquisiciones empresariales.',
-    specialties: [
-      'Derecho Corporativo',
-      'Fusiones y Adquisiciones',
-      'Derecho Comercial',
-    ],
+      'Brinda asesoría especializada en mecanismos alternativos de resolución de conflictos, promoviendo soluciones ágiles, efectivas y consensuadas. Cuenta con amplia experiencia en las áreas de Derecho de Familia, Derecho Civil y Derecho Notarial, Derecho Administrativo y Derecho Societario.',
+    specialties: ['Arbitraje Internacional', 'Mediación', 'Derecho de Familia'],
   },
   {
-    name: 'Ana María Vega',
-    role: 'Socia Principal',
-    image: '/images/partners/partner-2.jpg',
+    name: 'Dra. Patricia Ordoñez Muñoz',
+    role: 'Abogada especialista en Derecho penal, constitucional y justicia penal militar',
+    image: '/images/partners/nathalia-zuniga.png',
     description:
-      'Experta en derecho laboral y seguridad social. Líder en casos de alta complejidad y negociaciones colectivas.',
+      'Cuenta además con amplia experiencia en las áreas de Derecho de Familia, Derecho Civil, Derecho Administrativo y Derecho Societario.',
     specialties: [
-      'Derecho Laboral',
-      'Seguridad Social',
-      'Negociación Colectiva',
-    ],
-  },
-  {
-    name: 'Luis Morales',
-    role: 'Socio Director',
-    image: '/images/partners/partner-3.jpg',
-    description:
-      'Especializado en derecho tributario y planificación fiscal. Asesor de importantes grupos empresariales nacionales e internacionales.',
-    specialties: [
-      'Derecho Tributario',
-      'Planificación Fiscal',
-      'Consultoría Empresarial',
+      'Derecho Penal',
+      'Derecho Constitucional',
+      'Justicia Penal Militar',
     ],
   },
 ]
@@ -65,8 +49,6 @@ const partners: Partner[] = [
         </h3>
 
         <p class='text-xl text-foreground leading-relaxed'>
-          Desde hace más de dos décadas, nuestro bufete ha sido sinónimo de
-          excelencia legal y compromiso inquebrantable con nuestros clientes.
           Nos enorgullece ofrecer un servicio legal integral, donde cada caso
           recibe la atención personalizada que merece.
         </p>
@@ -151,7 +133,7 @@ const partners: Partner[] = [
     <div id='equipo' class='mt-24'>
       <SectionTitle title='Nuestros Socios' />
 
-      <div class='grid md:grid-cols-3 gap-8'>
+      <div class='grid gap-8 md:grid md:grid-cols-2 md:gap-12 xl:max-w-3xl xl:mx-auto'>
         {
           partners.map((partner) => (
             <article class='bg-light/5 rounded-xl overflow-hidden hover:bg-light/10 transition-all duration-300 shadow-md hover:shadow-lg invisible intersect:visible intersect:animate-fade-up intersect-half intersect-once'>

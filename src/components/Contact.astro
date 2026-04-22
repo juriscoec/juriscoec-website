@@ -1,105 +1,168 @@
 ---
-import { Image } from 'astro:assets'
 import { ContactForm } from './react/ContactForm'
 import Typography from './ui/Typography.astro'
+import locationIcon from '../assets/contact/location.svg?raw'
+import phoneIcon from '../assets/contact/phone.svg?raw'
+import emailIcon from '../assets/contact/email.svg?raw'
 
 interface ContactInfo {
   icon: string
   title: string
   content: string
   link?: string
+  highlight?: boolean
 }
+
+const officeAddress =
+  'Calle General Maldonado entre Av. Amazonas y Antonia Vela, Edificio Lexus, Ofi. 105'
+
+const mapUrl = `https://www.google.com/maps?q=${encodeURIComponent(officeAddress)}&output=embed`
 
 const contactInfo: ContactInfo[] = [
   {
-    icon: '📍',
-    title: 'Dirección',
-    content: 'Av. Principal 123, Edificio Legal, Piso 15',
+    icon: locationIcon,
+    title: 'Ubícanos',
+    content:
+      'Avenida General Maldonado entre Av. Amazonas y Antonia Vela, Edificio Lexus, Ofi. 105. Quito - Ecuador',
     link: 'https://maps.google.com',
   },
   {
-    icon: '📞',
-    title: 'Teléfono',
-    content: '+593 (2) 234-5678',
-    link: 'tel:+59322345678',
+    icon: phoneIcon,
+    title: 'Llámanos',
+    content: '0981692167 / 0989627532',
+    link: 'tel:+593981692167',
+    highlight: true,
   },
   {
-    icon: '✉️',
+    icon: emailIcon,
     title: 'Email',
     content: 'abogadazo@juriscoec.com',
     link: 'mailto:abogadazo@juriscoec.com',
   },
-  {
-    icon: '⏰',
-    title: 'Horario',
-    content: 'Lunes a Viernes: 8:00 AM - 6:00 PM',
-  },
 ]
 ---
 
-<section id='contacto' class='relative flex items-center py-24'>
-  <picture class='absolute inset-0 -z-10'>
-    <source media='(min-width: 768px)' srcset='/images/contact-bg.webp' />
-    <Image
-      width={1920}
-      height={1080}
-      src='/images/contact-bg-mobile.webp'
-      alt='Fondo de contacto'
-      class='w-full h-full object-cover'
-    />
-  </picture>
+<section id='contacto' class='bg-[#f7f3f1] py-20 text-foreground'>
+  <div class='container mx-auto space-y-14'>
+    <div class='mx-auto max-w-3xl text-center'>
+      <p
+        class='mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-primary'
+      >
+        Contáctanos
+      </p>
+      <h2 class='text-3xl font-bold text-[#6f2c39] sm:text-4xl md:text-5xl'>
+        <Typography>Estamos aquí para ayudarte</Typography>
+      </h2>
+      <p
+        class='mx-auto mt-4 max-w-2xl text-base leading-relaxed text-foreground/75 sm:text-lg'
+      >
+        Ponte en contacto con nosotros y te responderemos a la brevedad posible.
+      </p>
+    </div>
 
-  <div class='absolute inset-0 bg-black/70 -z-10'></div>
+    <div
+      class='grid overflow-hidden rounded-2xl bg-white shadow-[0_14px_45px_rgba(63,38,31,0.18)] lg:grid-cols-3'
+    >
+      {
+        contactInfo.map((info, index) => (
+          <div
+            class={`flex flex-col items-center justify-center px-8 py-10 text-center transition-transform duration-300 hover:-translate-y-1 ${
+              index === 1
+                ? 'bg-[#6f2c39] text-white'
+                : 'bg-white text-[#6f2c39]'
+            }`}
+          >
+            <span
+              class={`mb-5 block h-9 w-9 ${index === 1 ? 'text-white' : 'text-[#6f2c39]'}`}
+              aria-hidden='true'
+              set:html={info.icon}
+            />
+            <h3
+              class={`text-2xl font-bold ${index === 1 ? 'text-white' : 'text-[#6f2c39]'}`}
+            >
+              {info.title}
+            </h3>
+            {info.link ? (
+              <a
+                href={info.link}
+                class={`mt-5 max-w-sm text-sm leading-relaxed transition-opacity hover:opacity-80 ${
+                  index === 1 ? 'text-white' : 'text-[#6f2c39]/85'
+                }`}
+                target={info.link.startsWith('http') ? '_blank' : undefined}
+                rel={
+                  info.link.startsWith('http')
+                    ? 'noopener noreferrer'
+                    : undefined
+                }
+              >
+                {info.content}
+              </a>
+            ) : (
+              <p
+                class={`mt-5 max-w-sm text-sm leading-relaxed ${index === 1 ? 'text-white/90' : 'text-[#6f2c39]/85'}`}
+              >
+                {info.content}
+              </p>
+            )}
+          </div>
+        ))
+      }
+    </div>
 
-  <div class='container mx-auto'>
-    <div class='grid lg:grid-cols-2 gap-12'>
-      <div class='space-y-8'>
-        <div>
-          <h2 class='font-bold text-gradient-primary mb-4 pt-1'>
-            <Typography>Contáctenos</Typography>
-          </h2>
-          <p class='text-xl text-light leading-relaxed'>
-            Estamos aquí para ayudarte. Ponte en contacto con nosotros y te
-            responderemos a la brevedad posible.
+    <div
+      class='rounded-2xl border border-[#6f2c39]/10 bg-white px-6 py-4 text-center shadow-[0_14px_45px_rgba(63,38,31,0.08)]'
+    >
+      <p class='text-sm font-medium text-[#6f2c39] sm:text-base'>
+        Horario: lunes a viernes de 8:30 a 5:30. Atención fin de semana con cita
+        previa.
+      </p>
+    </div>
+
+    <div class='grid gap-8 lg:grid-cols-[1.05fr_0.95fr]'>
+      <div
+        class='overflow-hidden rounded-2xl bg-white shadow-[0_14px_45px_rgba(63,38,31,0.14)]'
+      >
+        <div class='border-b border-black/5 px-6 py-5 sm:px-8'>
+          <h3 class='text-2xl font-bold text-[#6f2c39]'>Ubicación</h3>
+          <p class='mt-2 text-sm text-foreground/70'>
+            Calle General Maldonado entre Av. Amazonas y Antonia Vela, Edificio
+            Lexus, Ofi. 105.
           </p>
         </div>
-
-        <div class='grid sm:grid-cols-2 gap-6'>
-          {
-            contactInfo.map((info) => (
-              <div class='bg-light/10 backdrop-blur rounded-lg p-6 hover:bg-light/15 transition-colors'>
-                <div class='flex items-start gap-4'>
-                  <span class='text-2xl'>{info.icon}</span>
-                  <div>
-                    <h3 class='text-light font-semibold mb-2'>{info.title}</h3>
-                    {info.link ? (
-                      <a
-                        href={info.link}
-                        class='text-light/80 hover:text-primary transition-colors'
-                        target={
-                          info.link.startsWith('http') ? '_blank' : undefined
-                        }
-                        rel={
-                          info.link.startsWith('http')
-                            ? 'noopener noreferrer'
-                            : undefined
-                        }
-                      >
-                        {info.content}
-                      </a>
-                    ) : (
-                      <p class='text-light/80'>{info.content}</p>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))
-          }
+        <div class='aspect-[4/3] min-h-[320px] w-full'>
+          <iframe
+            title='Mapa de ubicación'
+            src={mapUrl}
+            class='h-full w-full'
+            loading='lazy'
+            referrerpolicy='no-referrer-when-downgrade'
+            allowfullscreen></iframe>
+        </div>
+        <div class='border-t border-black/5 px-6 py-4 sm:px-8'>
+          <a
+            href='https://maps.google.com'
+            target='_blank'
+            rel='noopener noreferrer'
+            class='text-sm font-semibold text-primary hover:underline'
+          >
+            Abrir en Google Maps
+          </a>
         </div>
       </div>
 
-      <!-- Formulario de contacto -->
-      <ContactForm client:load />
+      <div>
+        <div
+          class='mb-5 rounded-2xl bg-white px-6 py-5 shadow-[0_14px_45px_rgba(63,38,31,0.14)] sm:px-8'
+        >
+          <h3 class='text-3xl font-bold text-[#6f2c39]'>
+            Formulario de Contacto
+          </h3>
+          <p class='mt-2 text-sm text-foreground/70'>
+            Déjanos tus datos y te contactaremos lo antes posible.
+          </p>
+        </div>
+        <ContactForm client:load variant='light' />
+      </div>
     </div>
   </div>
 </section>
