@@ -1,0 +1,210 @@
+<div id='wa-widget' class='wa-widget animate-fade-left animate-delay-1000'>
+  <div class='wa-panel' data-panel>
+    <div class='wa-header'>
+      <button
+        type='button'
+        class='wa-close'
+        data-close
+        aria-label='Cerrar chat'
+      >
+        x
+      </button>
+    </div>
+
+    <div class='wa-body'>
+      <p>Hola</p>
+      <p>¿Cómo te puedo ayudar?</p>
+    </div>
+
+    <a
+      href='https://wa.me/593981692167'
+      target='_blank'
+      rel='noopener noreferrer'
+      class='wa-open'
+      aria-label='Abrir chat de WhatsApp'
+    >
+      <span>Open chat</span>
+      <svg
+        viewBox='0 0 24 24'
+        xmlns='http://www.w3.org/2000/svg'
+        aria-hidden='true'
+      >
+        <path
+          d='M3 12h13m0 0-5-5m5 5-5 5'
+          fill='none'
+          stroke='currentColor'
+          stroke-width='2'
+          stroke-linecap='round'
+          stroke-linejoin='round'></path>
+      </svg>
+    </a>
+  </div>
+
+  <a
+    href='https://wa.me/593981692167'
+    target='_blank'
+    rel='noopener noreferrer'
+    class='wa-fab fixed bottom-4 right-5 z-50 flex items-center justify-center size-11 sm:size-12 bg-[#25D366] rounded-full shadow-lg transform transition-all duration-300 hover:scale-110'
+    data-fab
+    aria-label='Abrir WhatsApp'
+  >
+    <svg
+      viewBox='0 0 256 259'
+      xmlns='http://www.w3.org/2000/svg'
+      preserveAspectRatio='xMidYMid'
+      class='wa-fab-icon'
+      aria-hidden='true'
+    >
+      <path
+        d='m67.663 221.823 4.185 2.093c17.44 10.463 36.971 15.346 56.503 15.346 61.385 0 111.609-50.224 111.609-111.609 0-29.297-11.859-57.897-32.785-78.824-20.927-20.927-48.83-32.785-78.824-32.785-61.385 0-111.61 50.224-110.912 112.307 0 20.926 6.278 41.156 16.741 58.594l2.79 4.186-11.16 41.156 41.853-10.464Z'
+        fill='#00E676'></path>
+      <path
+        d='M219.033 37.668C195.316 13.254 162.531 0 129.048 0 57.898 0 .698 57.897 1.395 128.35c0 22.322 6.278 43.947 16.742 63.478L0 258.096l67.663-17.439c18.834 10.464 39.76 15.347 60.688 15.347 70.453 0 127.653-57.898 127.653-128.35 0-34.181-13.254-66.269-36.97-89.986ZM129.048 234.38c-18.834 0-37.668-4.882-53.712-14.648l-4.185-2.093-40.458 10.463 10.463-39.76-2.79-4.186C7.673 134.63 22.322 69.058 72.546 38.365c50.224-30.692 115.097-16.043 145.79 34.181 30.692 50.224 16.043 115.097-34.18 145.79-16.045 10.463-35.576 16.043-55.108 16.043Zm61.385-77.428-7.673-3.488s-11.16-4.883-18.136-8.371c-.698 0-1.395-.698-2.093-.698-2.093 0-3.488.698-4.883 1.396 0 0-.697.697-10.463 11.858-.698 1.395-2.093 2.093-3.488 2.093h-.698c-.697 0-2.092-.698-2.79-1.395l-3.488-1.395c-7.673-3.488-14.648-7.674-20.229-13.254-1.395-1.395-3.488-2.79-4.883-4.185-4.883-4.883-9.766-10.464-13.253-16.742l-.698-1.395c-.697-.698-.697-1.395-1.395-2.79 0-1.395 0-2.79.698-3.488 0 0 2.79-3.488 4.882-5.58 1.396-1.396 2.093-3.488 3.488-4.883 1.395-2.093 2.093-4.883 1.395-6.976-.697-3.488-9.068-22.322-11.16-26.507-1.396-2.093-2.79-2.79-4.883-3.488H83.01c-1.396 0-2.79.698-4.186.698l-.698.697c-1.395.698-2.79 2.093-4.185 2.79-1.395 1.396-2.093 2.79-3.488 4.186-4.883 6.278-7.673 13.951-7.673 21.624 0 5.58 1.395 11.161 3.488 16.044l.698 2.093c6.278 13.253 14.648 25.112 25.81 35.575l2.79 2.79c2.092 2.093 4.185 3.488 5.58 5.58 14.649 12.557 31.39 21.625 50.224 26.508 2.093.697 4.883.697 6.976 1.395h6.975c3.488 0 7.673-1.395 10.464-2.79 2.092-1.395 3.487-1.395 4.882-2.79l1.396-1.396c1.395-1.395 2.79-2.092 4.185-3.487 1.395-1.395 2.79-2.79 3.488-4.186 1.395-2.79 2.092-6.278 2.79-9.765v-4.883s-.698-.698-2.093-1.395Z'
+        fill='#FFF'></path>
+    </svg>
+  </a>
+</div>
+
+<style>
+  .wa-widget {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 60;
+    width: min(280px, calc(100vw - 20px));
+  }
+
+  .wa-panel {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #dfe2df;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.25);
+    border: 1px solid rgb(0 0 0 / 0.1);
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+    transform-origin: bottom right;
+    visibility: hidden;
+    pointer-events: none;
+    will-change: transform, opacity;
+    transition:
+      opacity 220ms ease,
+      transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 280ms;
+  }
+
+  .wa-panel.is-open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+      opacity 220ms ease,
+      transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0s;
+  }
+
+  .wa-header {
+    height: 42px;
+    background: #25d366;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    font-size: 11px;
+  }
+
+  .wa-close {
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    border: 0;
+    background: rgb(0 0 0 / 0.15);
+    color: #fff;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .wa-body {
+    margin: 12px;
+    border-radius: 12px;
+    background: #f5f5f5;
+    border: 2px solid #d9d9d9;
+    padding: 10px 12px;
+    color: #4a4a4a;
+    font-size: 13px;
+  }
+
+  .wa-body p {
+    margin: 0;
+  }
+
+  .wa-open {
+    margin: 0 12px 12px;
+    border-radius: 999px;
+    background: #25d366;
+    color: #fff;
+    text-decoration: none;
+    height: 38px;
+    display: inline-flex;
+    width: calc(100% - 24px);
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .wa-open svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .wa-fab {
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    background: #25d366;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.25);
+  }
+
+  .wa-fab-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    .wa-widget {
+      right: 10px;
+      bottom: 10px;
+      width: min(260px, calc(100vw - 16px));
+    }
+  }
+</style>
+
+<script>
+  const root = document.getElementById('wa-widget')
+  if (root) {
+    const panel = root.querySelector('[data-panel]')
+    const closeButton = root.querySelector('[data-close]')
+    const fab = root.querySelector('[data-fab]')
+
+    closeButton?.addEventListener('click', () => {
+      panel?.classList.remove('is-open')
+      fab?.classList.remove('hidden')
+    })
+
+    fab?.addEventListener('click', (event) => {
+      event.preventDefault()
+      panel?.classList.add('is-open')
+      fab?.classList.add('hidden')
+    })
+  }
+</script>

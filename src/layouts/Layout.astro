@@ -1,0 +1,56 @@
+---
+import { Toaster } from 'sonner'
+import Footer from '../components/Footer.astro'
+import WhatsappButton from '../components/WhatsappButton.astro'
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'Z&O | Expertos en Derecho',
+  description = 'Firma de abogados comprometida con brindar soluciones legales integrales con profesionalismo y excelencia.',
+} = Astro.props
+---
+
+<!doctype html>
+<html lang='es' class='scroll-smooth'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='description' content={description} />
+
+    <link rel='icon' type='image/png' href='/images/favicon/favicon-96x96.png' sizes='96x96' />
+    <link rel='icon' type='image/svg+xml' href='/images/favicon/favicon.svg' />
+    <link rel='shortcut icon' href='/images/favicon/favicon.ico' />
+    <link rel='apple-touch-icon' sizes='180x180' href='/images/favicon/apple-touch-icon.png' />
+    <meta name='apple-mobile-web-app-title' content='Juriscoec' />
+    <link rel='manifest' href='/images/favicon/site.webmanifest' />
+
+    <title>{title}</title>
+  </head>
+  <body class='font-inter text-foreground antialiased'>
+    <slot />
+    <Footer />
+    <Toaster richColors closeButton client:load />
+    <WhatsappButton />
+  </body>
+</html>
+
+<style>
+  html {
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
+</style>
+
+<script>
+  import { Observer } from 'tailwindcss-intersect'
+  Observer.start()
+</script>
