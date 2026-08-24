@@ -3,6 +3,7 @@ import { Toaster } from 'sonner'
 import Footer from '../components/Footer.astro'
 import WhatsappButton from '../components/WhatsappButton.astro'
 import '../styles/global.css'
+import { ClientRouter } from 'astro:transitions'
 
 interface Props {
   title?: string
@@ -28,6 +29,8 @@ const {
     <link rel='apple-touch-icon' sizes='180x180' href='/images/favicon/apple-touch-icon.png' />
     <meta name='apple-mobile-web-app-title' content='Juriscoec' />
     <link rel='manifest' href='/images/favicon/site.webmanifest' />
+
+    <ClientRouter />
 
     <title>{title}</title>
   </head>
