@@ -1,9 +1,9 @@
 ---
-import Typography from "./ui/Typography.astro";
+import Typography from './ui/Typography.astro'
 
 const legalDocs = [
   {
-    title: "Política de Privacidad",
+    title: 'Política de Privacidad',
     content: `En Z&O, nos tomamos muy en serio la privacidad de nuestros clientes. Esta política describe cómo recopilamos, 
     utilizamos y protegemos su información personal.
 
@@ -14,10 +14,10 @@ const legalDocs = [
     • Protección integral de datos personales
     • Transparencia en el uso de la información
     • Acceso y control sobre sus datos
-    • Actualizaciones regulares de nuestras medidas de seguridad`
+    • Actualizaciones regulares de nuestras medidas de seguridad`,
   },
   {
-    title: "Términos y condiciones",
+    title: 'Términos y condiciones',
     content: `Los presentes términos y condiciones establecen las normas de uso de nuestros servicios legales.
 
     Al contratar nuestros servicios, usted acepta:
@@ -30,10 +30,10 @@ const legalDocs = [
     • Proporcionar servicios legales de alta calidad
     • Mantener la confidencialidad cliente-abogado
     • Actuar con profesionalidad y ética
-    • Mantener una comunicación clara y constante`
+    • Mantener una comunicación clara y constante`,
   },
   {
-    title: "Política SGSI CPA",
+    title: 'Política SGSI CPA',
     content: `Nuestra Política del Sistema de Gestión de Seguridad de la Información para la Confidencialidad Profesional Abogado-Cliente 
     establece los lineamientos para proteger la información sensible.
 
@@ -43,10 +43,10 @@ const legalDocs = [
     • Sistemas de encriptación y almacenamiento seguro
     • Procedimientos de respuesta ante incidentes
     
-    Revisamos y actualizamos regularmente nuestras políticas para mantener los más altos estándares de seguridad.`
+    Revisamos y actualizamos regularmente nuestras políticas para mantener los más altos estándares de seguridad.`,
   },
   {
-    title: "Política de protección de datos",
+    title: 'Política de protección de datos',
     content: `En cumplimiento con las regulaciones de protección de datos, implementamos medidas técnicas y organizativas para 
     salvaguardar su información personal.
 
@@ -56,10 +56,10 @@ const legalDocs = [
     • Sistemas de seguridad actualizados
     • Protocolos de gestión de datos
     
-    Sus derechos incluyen acceso, rectificación, cancelación y oposición al tratamiento de sus datos personales.`
+    Sus derechos incluyen acceso, rectificación, cancelación y oposición al tratamiento de sus datos personales.`,
   },
   {
-    title: "Política SGSI Z&O",
+    title: 'Política SGSI Z&O',
     content: `El Sistema de Gestión de Seguridad de la Información de H&O establece los procedimientos y controles para proteger 
     los activos de información de la firma.
 
@@ -69,62 +69,121 @@ const legalDocs = [
     • Continuidad del negocio y recuperación
     • Auditorías de seguridad regulares
     
-    Nuestro compromiso es mantener la confidencialidad, integridad y disponibilidad de la información.`
-  }
-];
+    Nuestro compromiso es mantener la confidencialidad, integridad y disponibilidad de la información.`,
+  },
+]
 ---
 
-<section id="legal" class="legal-section py-16 px-4">
-  <div class="container mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-10">
+<section id='legal' class='legal-section py-16 px-4'>
+  <div class='container mx-auto'>
+    <h2 class='text-4xl font-bold text-center mb-10 md:text-5xl'>
       <Typography>Información Legal</Typography>
     </h2>
-    
-    <div class="max-w-3xl mx-auto space-y-4">
-      {legalDocs.map(doc => (
-        <details class="bg-white shadow-lg rounded-lg">
-          <summary class="px-6 py-4 cursor-pointer font-semibold">
-            {doc.title}
-          </summary>
-          <div class="px-6 py-4 border-t">
-            <p class="whitespace-pre-line text-gray-700">
-              {doc.content}
-            </p>
-          </div>
-        </details>
-      ))}
+
+    <div class='max-w-3xl mx-auto space-y-4'>
+      {
+        legalDocs.map((doc) => (
+          <article
+            class='t-acc bg-white shadow-lg rounded-lg'
+            data-open='false'
+          >
+            <button
+              type='button'
+              class='t-acc-head w-full px-6 py-4 cursor-pointer font-semibold text-left'
+              aria-expanded='false'
+            >
+              {doc.title}
+              <span class='t-acc-chevron' aria-hidden='true'>
+                <svg
+                  width='16'
+                  height='16'
+                  viewBox='0 0 16 16'
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-width='1.5'
+                >
+                  <path d='M4 6.5L8 10.5L12 6.5' />
+                </svg>
+              </span>
+            </button>
+            <div class='t-acc-panel'>
+              <div class='t-acc-panel-inner px-6 py-4'>
+                <p class='whitespace-pre-line text-gray-700'>{doc.content}</p>
+              </div>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>
 
 <style>
-  details {
-    transition: all 0.3s ease;
+  .t-acc {
+    overflow: hidden;
   }
-
-  details[open] {
-    margin-bottom: 1rem;
-  }
-
-  summary {
-    list-style: none;
+  .t-acc-head {
     position: relative;
+    background: transparent;
+    border: 0;
+    padding-right: 4rem;
   }
-
-  summary::-webkit-details-marker {
-    display: none;
+  .t-acc-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
   }
-
-  summary::after {
-    content: '+';
-    position: absolute;
-    right: 1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5rem;
+  .t-acc-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--acc-collapse) var(--acc-ease);
   }
-
-  details[open] summary::after {
-    content: '-';
+  .t-acc[data-open='true'] .t-acc-panel {
+    grid-template-rows: 1fr;
+    transition-duration: var(--acc-expand);
+  }
+  .t-acc-panel-inner {
+    overflow: hidden;
+    opacity: 0;
+    filter: blur(2px);
+    transition:
+      opacity var(--acc-collapse) var(--acc-ease),
+      filter var(--acc-collapse) var(--acc-ease);
+  }
+  .t-acc[data-open='true'] .t-acc-panel-inner {
+    opacity: 1;
+    filter: blur(0);
+    transition-duration: var(--acc-expand);
+  }
+  .t-acc-chevron {
+    display: inline-flex;
+    transform: scaleY(1);
+    transform-origin: center;
+    transition: transform var(--acc-chevron) var(--acc-ease);
+  }
+  .t-acc[data-open='true'] .t-acc-chevron {
+    transform: scaleY(-1);
+  }
+  .t-acc-chevron path {
+    vector-effect: non-scaling-stroke;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .t-acc-panel,
+    .t-acc-panel-inner,
+    .t-acc-chevron {
+      transition: none !important;
+    }
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.t-acc').forEach((acc) => {
+    const head = acc.querySelector<HTMLButtonElement>('.t-acc-head')
+    head?.addEventListener('click', () => {
+      const open = acc.dataset.open === 'true'
+      acc.dataset.open = String(!open)
+      head.setAttribute('aria-expanded', String(!open))
+    })
+  })
+</script>

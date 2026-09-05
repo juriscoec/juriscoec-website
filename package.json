@@ -6,13 +6,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@astrojs/react": "^4.4.0",
     "@astrojs/vercel": "^8.2.8",
     "@fontsource-variable/inter": "^5.2.8",
-    "@fontsource/great-vibes": "^5.2.8",
     "@tailwindcss/vite": "^4.1.13",
     "@types/react": "^19.1.15",
     "@types/react-dom": "^19.1.9",

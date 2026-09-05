@@ -2,7 +2,9 @@
 import { Image } from 'astro:assets'
 ---
 
-<section class='relative overflow-hidden h-[83vh]'>
+<section
+  class='relative h-[calc(100dvh-6.25rem)] overflow-hidden md:h-[calc(100dvh-7.25rem)]'
+>
   <div class='absolute inset-0 z-0'>
     <Image
       width={1692}
@@ -19,7 +21,9 @@ import { Image } from 'astro:assets'
     </div>
   </div>
 
-  <div class='container mx-auto h-full flex flex-col justify-center relative z-10'>
+  <div
+    class='container mx-auto h-full flex flex-col justify-center relative z-10'
+  >
     <div class='max-w-4xl mt-10'>
       <h1
         class='max-w-4xl text-3xl font-bold leading-tight text-light sm:text-4xl md:text-6xl intersect:animate-fade-up'
@@ -51,7 +55,7 @@ import { Image } from 'astro:assets'
 <style>
   .hero-bg-motion {
     transform: scale(1);
-    animation: heroScaleSlow 36s ease-in-out infinite alternate;
+    animation: heroScaleSlow 20s ease-in-out infinite alternate;
     will-change: transform;
   }
 

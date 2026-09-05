@@ -1,0 +1,5 @@
+.vercel/
+.agents/
+dist/
+node_modules/
+.env

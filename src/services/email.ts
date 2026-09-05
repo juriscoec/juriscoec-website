@@ -4,7 +4,7 @@ import { validateContactForm } from '../lib/utils'
 export async function sendEmail(data: ContactFormData): Promise<EmailResponse> {
   try {
     const validation = validateContactForm(data)
-    
+
     if (!validation.isValid) {
       return {
         success: false,

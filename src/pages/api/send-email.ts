@@ -6,10 +6,10 @@ const RESEND_API_KEY = import.meta.env.RESEND_API_KEY
 
 export const POST: APIRoute = async ({ request }) => {
   try {
-    const body = await request.json() as ContactFormData
+    const body = (await request.json()) as ContactFormData
 
     const validation = validateContactForm(body)
-    
+
     if (!validation.isValid) {
       return new Response(
         JSON.stringify({
@@ -21,7 +21,7 @@ export const POST: APIRoute = async ({ request }) => {
           headers: {
             'Content-Type': 'application/json',
           },
-        }
+        },
       )
     }
 
@@ -55,7 +55,7 @@ export const POST: APIRoute = async ({ request }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-      }
+      },
     )
   } catch (error) {
     return new Response(
@@ -68,7 +68,7 @@ export const POST: APIRoute = async ({ request }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-      }
+      },
     )
   }
 }

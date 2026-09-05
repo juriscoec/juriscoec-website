@@ -8,10 +8,10 @@ import twitterIcon from '../assets/social/twitter.svg?raw'
 const currentYear = new Date().getFullYear()
 
 const navigationLinks = [
-  { href: '#nosotros', text: 'Nosotros' },
-  { href: '#equipo', text: 'Equipo' },
-  { href: '#legal', text: 'Legal' },
-  { href: '#contacto', text: 'Contacto' },
+  { href: '/#nosotros', text: 'Nosotros' },
+  { href: '/#equipo', text: 'Equipo' },
+  { href: '/#legal', text: 'Legal' },
+  { href: '/#contacto', text: 'Contacto' },
 ]
 
 const socialMedia = [
@@ -68,7 +68,7 @@ const contactInfo = {
 
       <!-- Enlaces de navegación -->
       <div class='lg:ml-10'>
-        <h3 class='font-great-vibes text-3xl md:text-4xl mb-4'>Navegación</h3>
+        <h3 class='text-lg font-semibold tracking-tight mb-4'>Navegación</h3>
         <ul class='space-y-2'>
           {
             navigationLinks.map((link) => (
@@ -87,7 +87,7 @@ const contactInfo = {
 
       <!-- Información de contacto -->
       <div>
-        <h3 class='font-great-vibes text-3xl md:text-4xl mb-4'>Contacto</h3>
+        <h3 class='text-lg font-semibold tracking-tight mb-4'>Contacto</h3>
         <ul class='space-y-3 text-sm'>
           <li class='flex items-start gap-2'>
             <span class='text-primary mt-0.5'>📍</span>
@@ -129,7 +129,7 @@ const contactInfo = {
 
       <!-- Redes Sociales -->
       <div class='lg:ml-14'>
-        <h3 class='font-great-vibes text-3xl md:text-4xl mb-4'>Síguenos</h3>
+        <h3 class='text-lg font-semibold tracking-tight mb-4'>Síguenos</h3>
         <div class='flex gap-3'>
           {
             socialMedia.map((social) => (
