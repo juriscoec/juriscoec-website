@@ -103,25 +103,40 @@ import { Image } from 'astro:assets'
 </style>
 
 <script>
-  const slogan = document.getElementById('hero-slogan-text')
-  const cursor = document.querySelector('.hero-cursor')
+  let typingTimer: number | undefined
 
-  if (slogan && slogan.dataset.text && slogan.dataset.typed !== 'true') {
+  const initialiseHeroTypewriter = () => {
+    if (typingTimer) window.clearTimeout(typingTimer)
+
+    const slogan = document.getElementById('hero-slogan-text')
+    const cursor = document.querySelector('.hero-cursor')
+
+    if (!(slogan instanceof HTMLElement) || !slogan.dataset.text) return
+
     const fullText = slogan.dataset.text
-    slogan.dataset.typed = 'true'
     slogan.textContent = ''
+    cursor?.classList.remove('is-hidden')
 
     let index = 0
     const typeNext = () => {
+      if (!document.body.contains(slogan)) return
+
       if (index <= fullText.length) {
         slogan.textContent = fullText.slice(0, index)
         index += 1
-        window.setTimeout(typeNext, 45)
+        typingTimer = window.setTimeout(typeNext, 45)
       } else {
         cursor?.classList.add('is-hidden')
       }
     }
 
-    window.setTimeout(typeNext, 250)
+    typingTimer = window.setTimeout(typeNext, 250)
   }
+
+  document.addEventListener('astro:page-load', initialiseHeroTypewriter)
+  document.addEventListener('astro:before-swap', () => {
+    if (typingTimer) window.clearTimeout(typingTimer)
+  })
+
+  initialiseHeroTypewriter()
 </script>
